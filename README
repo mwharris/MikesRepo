@@ -1,1 +1,17 @@
 Personal GitHub repo for some projects I have been working on.
+
+PROJECTS
+-------------------
+-	C++ 
+	-	Pong Clone
+		-	Simple 2D Pong Clone made using C++ and SQL Game Library
+		-	2 person gameplay
+			-	Left Player uses "W" Key for Up and "S" Key for Down
+			-	Right Player uses arrow keys for Up and Down
+		-	Click to start the game
+		-	First player to 7 wins and the game restarts
+
+-	Unity (will upload soon)
+	-	Pong Clone
+	-	Breakout Clone
+	-	Space Invaders Clone
