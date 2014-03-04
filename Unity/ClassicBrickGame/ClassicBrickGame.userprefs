@@ -1,0 +1,22 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\BallScript.js">
+    <Files>
+      <File FileName="Assets\PlayerScript.js" Line="47" Column="2" />
+      <File FileName="Assets\BallScript.js" Line="85" Column="31" />
+      <File FileName="Assets\WallScript.js" Line="4" Column="2" />
+      <File FileName="Assets\WallTopScript.js" Line="2" Column="1" />
+      <File FileName="Assets\BallRelaunch.js" Line="4" Column="1" />
+      <File FileName="Assets\MakeBricksScript.js" Line="11" Column="24" />
+      <File FileName="Assets\BrickScript.js" Line="13" Column="13" />
+      <File FileName="Assets\Scoring.js" Line="19" Column="31" />
+      <File FileName="Assets\MainTitle.js" Line="3" Column="27" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Spanky\Documents\Unity Projects\ClassicBrickGame\Assets\BallScript.js" line="69" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

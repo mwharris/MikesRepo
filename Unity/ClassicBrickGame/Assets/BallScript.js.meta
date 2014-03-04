@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 9a6cd0a2f7292c445aadc75125f19a69
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - BeepSound: {fileID: 8300000, guid: 2d888846a8905244dada83d1c451bbef, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
