@@ -58,5 +58,9 @@ PROJECTS
 			
 		-	Enemies return fire and the player must avoid being shot
 		
-		-	Every time the player is shot a  life is lost
+		-	Every time the player is shot a life is lost
 			-	The player has 3 lives
+			
+		-	UPDATES
+			-	Aliens now have death animation + sound
+			-	Ship now has shot sound

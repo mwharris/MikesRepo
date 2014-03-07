@@ -1,10 +1,9 @@
 ﻿#pragma strict
 
 var alien : GameObject;
+var ExploSound : AudioClip;
 
 function Start () {
-	//call function to make aliens
-	MakeAliens();
 }
 
 function MakeAliens(){
@@ -13,12 +12,18 @@ function MakeAliens(){
 	//loop through and create a bunch of aliens
 	for(var i = 0; i < 15; i++){
 		for(var j = 0; j < 6; j++){
-			//make a new alien
+			//clone the alien GameObject and set it's position
 			al = Instantiate(
 				alien,
 				Vector3((i - 7) * 0.4, (j - 1) * 0.6, 5),
 				Quaternion.identity
 			);
+			
+			//initialize the state of the alien to 0 by 
+			var alscript : alienscript;
+			alscript = al.GetComponent(alienscript);
+			alscript.state = 0;
+			alscript.ExplosionSound = ExploSound;
 		}
 	}
 }
