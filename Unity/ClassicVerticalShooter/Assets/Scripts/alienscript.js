@@ -5,6 +5,9 @@ var state : int;
 var timer : float;
 var ExplosionSound : AudioClip;
 
+//array with the shooting rates of the each level
+static var levelArray = [50, 30, 20, 10];
+
 function Start () {
 
 }
@@ -18,13 +21,28 @@ function Update () {
 	renderer.material.SetTextureOffset("_MainTex", offset);
 	
 	if(GameStateScript.state != GameState.GameOver){
-		//have the alien shoot occasionally
-		if(Mathf.FloorToInt(Random.value * 10000.0) % 2000 == 0){
-			Instantiate(
-				aShot,
-				Vector3(transform.position.x, transform.position.y, 5),
-				Quaternion.identity
-			);
+		//variable to keep track of the spot in the array
+		var levelIndex : int;
+		levelIndex = scoring.level - 1;
+		
+		//handle if the level index goes outside the boundaries of our array
+		if(levelIndex > 3){
+			levelIndex = 3;
+		} else if(levelIndex < 0){
+			levelIndex = 0;
+		}
+		
+		//if the game is still going on
+		if(GameStateScript.state == GameState.GamePlay){
+			//fire ocassionally depending on the shot rate of the level we are on
+			if(Mathf.FloorToInt(Random.value * 10000.0) 
+					% (levelArray[levelIndex] * scoring.alienCounter) == 0){
+				Instantiate(
+					aShot,
+					Vector3(transform.position.x, transform.position.y, 5),
+					Quaternion.identity
+				);	
+			}
 		}
 	}
 	
@@ -49,6 +67,9 @@ function Update () {
 		if(timer < 0){
 			//destroy the alien once the timer has ended
 			Destroy(gameObject);
+			
+			//decrement aliens and check for level change
+			scoring.alienCounter--;
 		}
 	}
 	

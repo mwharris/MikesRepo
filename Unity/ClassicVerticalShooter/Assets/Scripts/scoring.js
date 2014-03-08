@@ -2,11 +2,14 @@
 
 static var score : int;
 static var lives : int;
+static var alienCounter : int;
+static var level : int;
 public var customButton : GUIStyle;
 
 function InitializeGame () {
 	score = 0;
 	lives = 3;
+	level = 1;
 }
 
 function Start () {
@@ -33,8 +36,10 @@ function OnGUI(){
 		}
 	}
 
-	//display boxes on the screen to display the score, lives, and game state
-	GUI.Box(Rect(10, 10, 90, 30), "Score: " + score);
-	GUI.Box(Rect(Screen.width - 100, 10, 90, 30), "Lives: " + lives);
-	GUI.Box(Rect(Screen.width/2 - 30, 10, 90, 30), "State: " + GameStateScript.state);	
+	//display boxes on the screen for debug purposes
+	GUI.Box(Rect(10, 10, 90, 30), "Score: " + score);									//score
+	GUI.Box(Rect(Screen.width - 100, 10, 90, 30), "Lives: " + lives);					//lives
+	GUI.Box(Rect(10, 50, 90, 30), "State: " + GameStateScript.state);					//game state
+	GUI.Box(Rect(Screen.width - 100, 50, 90, 30), "Aliens: " + scoring.alienCounter);	//aliens
+	GUI.Box(Rect(Screen.width/2 - 60, 10, 120, 30), "Level: " + scoring.level);			//level
 }

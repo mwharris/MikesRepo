@@ -16,6 +16,12 @@ function Update(){
 	if(GameStateScript.state == GameState.GamePlay){
 		//activate the ship controls
 		ShipControl();
+		
+		//reset the level if no more aliens are left
+		if(scoring.alienCounter == 0){
+			GameStateScript.state = GameState.StartingPlay;
+			scoring.level++;
+		}
 	}
 	
 	//if we are beginning to play the game

@@ -52,15 +52,15 @@ PROJECTS
 		-	NOTE: WORK IN PROGRESS
 		
 		-	Single player shooter game 
+			-	Audacity was used for missile and explosion sounds
+			-	GIMP was used for the background, alien sprites, ship sprite, and missiles
+			-	All other logic and objects were made in Unity
 		
 		-	Player controls the ship on the bottom using the Left and Right arrows
 			-	Spacebar is used to shoot missiles
 			
 		-	Enemies return fire and the player must avoid being shot
 		
-		-	Every time the player is shot a life is lost
-			-	The player has 3 lives
-			
-		-	UPDATES
-			-	Aliens now have death animation + sound
-			-	Ship now has shot sound
+		-	The player has 3 lives and see Game Over upon losing all of his lives
+		
+		-	There are now 4 levels to the game, each with a harder difficulty than the last
