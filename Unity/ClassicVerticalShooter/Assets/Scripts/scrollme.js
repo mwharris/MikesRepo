@@ -7,5 +7,9 @@ function Start () {
 }
 
 function Update () {
-	renderer.material.SetTextureOffset("_MainTex", Vector2(0, scrollSpeed * Time.time));
+	if(scoring.level == 1 || scoring.level == 3){
+		renderer.material.SetTextureOffset("_MainTex", Vector2(0, scrollSpeed * Time.time));
+	} else {
+		renderer.material.SetTextureOffset("_MainTex", Vector2(scrollSpeed * Time.time, 0));
+	}
 }

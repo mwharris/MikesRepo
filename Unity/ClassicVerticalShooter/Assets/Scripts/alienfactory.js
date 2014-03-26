@@ -13,12 +13,12 @@ function MakeAliens(){
 	scoring.alienCounter = 0;
 	
 	//loop through and create a bunch of aliens
-	for(var i = 0; i < 15; i++){
-		for(var j = 0; j < 6; j++){
+	for(var i = 0; i < 12; i++){
+		for(var j = 0; j < 4; j++){
 			//clone the alien GameObject and set it's position
 			al = Instantiate(
 				alien,
-				Vector3((i - 7) * 0.4, (j - 1) * 0.6, 5),
+				Vector3((i - 5.5) * 0.7, j * 0.8, 5),
 				Quaternion.identity
 			);
 			

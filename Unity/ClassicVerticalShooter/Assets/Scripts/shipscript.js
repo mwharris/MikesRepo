@@ -7,12 +7,33 @@ var alienfactoryvar : alienfactory;
 var deathtimer : float;
 var ShotSound : AudioClip;
 
+static var shipType : int;
+
 function Start () {
+	//initialize the ship to the clasic green one
+	shipType = 1;
 	transform.position.y = -2.8;
 }
 
 function Update(){
-	//if we are playing the game
+	//if we are at the initial splash screen
+	if(GameStateScript.state == GameState.PressStart || GameStateScript.state == GameState.GamePlay){
+		var size : Vector2;
+		var offset : Vector2;
+		
+		//change the ship sprite depending on the shipType chosen
+		if(shipType == 1){
+			size = Vector2(0.50, 1);
+			offset = Vector2(0.50, 0);
+		} else if(shipType == 2){
+			size = Vector2(0.50, 1);
+			offset = Vector2(0, 0);
+		}
+		renderer.material.SetTextureScale("_MainTex", size);
+		renderer.material.SetTextureOffset("_MainTex", offset);
+	}
+	
+	//if we are in the middle of game play
 	if(GameStateScript.state == GameState.GamePlay){
 		//activate the ship controls
 		ShipControl();
@@ -24,7 +45,7 @@ function Update(){
 		}
 	}
 	
-	//if we are beginning to play the game
+	//if we are initializing the game
 	if(GameStateScript.state == GameState.StartingPlay){
 		//create the enemies and change game state
 		alienfactoryvar.MakeAliens();
@@ -71,6 +92,14 @@ function ShipControl () {
 		transform.Translate(shipSpeed * Time.deltaTime, 0, 0);
 	}
 	
+	//change the ship type if the player chooses
+	if(Input.GetKey(KeyCode.Alpha1)){
+		shipType = 1;
+	}
+	if(Input.GetKey(KeyCode.Alpha2)){
+		shipType = 2;
+	}
+	
 	//don't allow the ship to move too far left or right
 	if(transform.position.x < -screenBoundary){
 		transform.position.x = -screenBoundary;
@@ -90,10 +119,7 @@ function OnTriggerEnter(other : Collider){
 	//make sure there are no ship - missile collisions after game has ended
 	if(GameStateScript.state == GameState.GamePlay){
 		//if a shot hits us
-		if(other.tag == "ashot"){
-			//decrement the lives
-			scoring.lives--;
-			
+		if(other.tag == "ashot"){	
 			//set the deathtimer
 			deathtimer = 10.0;
 			GameStateScript.state = GameState.Dying;
@@ -103,6 +129,9 @@ function OnTriggerEnter(other : Collider){
 				//destroy the ship and the shot
 				Destroy(other.gameObject);
 				GameStateScript.state = GameState.GameOver;
+			} else {
+				//decrement the lives
+				scoring.lives--;
 			}
 		}	
 	}

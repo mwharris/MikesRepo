@@ -17,10 +17,25 @@ function Start () {
 }
 
 function OnGUI(){
-	//if we are in the PressStart Game State
+	//if we are on the initial splash screen to choose a ship
 	if(GameStateScript.state == GameState.PressStart){
-		//Create a button and wait for it to be clicked
-		if(GUI.Button(Rect(Screen.width/2 - 150, Screen.height/2 - 50, 300, 50), "Click Me to Start", customButton)){
+		//Create some Welcome Text / Instructions
+		customButton.alignment = TextAnchor.UpperCenter;
+		GUI.TextArea(Rect(Screen.width/2 - 275, Screen.height/2 - 250, 550, 90), "Please choose a ship type to use. "
+			+ "\n "
+			+ "You can also change the ship type in-game \n using the '1' and '2' keys:", customButton);
+	
+		//Create buttons for choosing a ship
+		customButton.alignment = TextAnchor.MiddleCenter;
+		if(GUI.Button(Rect(Screen.width/2 - 175, Screen.height/2 - 150, 150, 50), "Manta Ray", customButton)){
+			shipscript.shipType = 1;
+		}
+		if(GUI.Button(Rect(Screen.width/2 + 25, Screen.height/2 - 150, 150, 50), "Swordfish", customButton)){
+			shipscript.shipType = 2;
+		}
+		
+		//Create a confirm button to move to the next phase
+		if(GUI.Button(Rect(Screen.width/2 - 150, Screen.height/2 + 50, 300, 50), "Click Me to Start", customButton)){
 			//change the game state to start the game
 			GameStateScript.state = GameState.StartingPlay;
 		}

@@ -64,3 +64,7 @@ PROJECTS
 		-	The player has 3 lives and see Game Over upon losing all of his lives
 		
 		-	There are now 4 levels to the game, each with a harder difficulty than the last
+		
+		-	UPDATES
+			-	Player missiles now have animations
+			-	Updated the gird of aliens to 12x4
