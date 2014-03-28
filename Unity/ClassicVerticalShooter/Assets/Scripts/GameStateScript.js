@@ -1,6 +1,7 @@
 ﻿#pragma strict
 
 static var state : int;
+static var screenBoundary : float;
 
 public enum GameState {
 	PressStart = 1,
@@ -13,6 +14,7 @@ public enum GameState {
 
 function Start () {
 	state = GameState.PressStart;
+	screenBoundary = 4;
 }
 
 function Update () {

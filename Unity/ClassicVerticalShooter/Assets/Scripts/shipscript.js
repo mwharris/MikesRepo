@@ -1,11 +1,14 @@
 ﻿#pragma strict
 
 var shipSpeed : float;
-var screenBoundary : float;
 var shot : GameObject;
 var alienfactoryvar : alienfactory;
-var deathtimer : float;
+private var deathtimer : float;
 var ShotSound : AudioClip;
+var DeathSound : AudioClip;
+var GameOver : AudioClip;
+private var gameOverTimer : float;
+private var gameOverThresh : int;
 
 static var shipType : int;
 
@@ -13,6 +16,8 @@ function Start () {
 	//initialize the ship to the clasic green one
 	shipType = 1;
 	transform.position.y = -2.8;
+	gameOverThresh = 1.5;
+	gameOverTimer = 0;
 }
 
 function Update(){
@@ -20,6 +25,7 @@ function Update(){
 	if(GameStateScript.state == GameState.PressStart || GameStateScript.state == GameState.GamePlay){
 		var size : Vector2;
 		var offset : Vector2;
+		gameOverThresh = 1.5;
 		
 		//change the ship sprite depending on the shipType chosen
 		if(shipType == 1){
@@ -81,6 +87,16 @@ function Update(){
 			renderer.enabled = true;
 		}
 	}
+	
+	if(GameStateScript.state == GameState.GameOver && gameOverThresh != 0){
+		gameOverTimer = gameOverTimer + Time.deltaTime;
+		
+		if(gameOverTimer > gameOverThresh){
+			audio.PlayOneShot(GameOver);
+			gameOverThresh = 0;
+			gameOverTimer = 0;
+		}
+	}
 }
 
 function ShipControl () {
@@ -101,11 +117,11 @@ function ShipControl () {
 	}
 	
 	//don't allow the ship to move too far left or right
-	if(transform.position.x < -screenBoundary){
-		transform.position.x = -screenBoundary;
+	if(transform.position.x < -GameStateScript.screenBoundary){
+		transform.position.x = -GameStateScript.screenBoundary;
 	}
-	if(transform.position.x > screenBoundary){
-		transform.position.x = screenBoundary;
+	if(transform.position.x > GameStateScript.screenBoundary){
+		transform.position.x = GameStateScript.screenBoundary;
 	}
 	
 	//fire a shot
@@ -120,6 +136,9 @@ function OnTriggerEnter(other : Collider){
 	if(GameStateScript.state == GameState.GamePlay){
 		//if a shot hits us
 		if(other.tag == "ashot"){	
+			//play the explosion sound
+			audio.PlayOneShot(DeathSound);
+		
 			//set the deathtimer
 			deathtimer = 10.0;
 			GameStateScript.state = GameState.Dying;

@@ -68,3 +68,5 @@ PROJECTS
 		-	UPDATES
 			-	Player missiles now have animations
 			-	Updated the gird of aliens to 12x4
+			-	Aliens now move left to right and reverse direction when they hit the wall
+			-	Added player explosion and game over sounds

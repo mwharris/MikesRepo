@@ -1,12 +1,31 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\alienfactory.js">
     <Files>
       <File FileName="Assets\Scripts\shipscript.js" Line="26" Column="28" />
-      <File FileName="Assets\Scripts\shotscript.js" Line="14" Column="52" />
-      <File FileName="Assets\Scripts\alienscript.js" Line="15" Column="21" />
-      <File FileName="Assets\Scripts\alienfactory.js" Line="21" Column="37" />
+      <File FileName="Assets\Scripts\alienscript.js" Line="6" Column="3" />
+      <File FileName="Assets\Scripts\alienfactory.js" Line="30" Column="41" />
+      <File FileName="Assets\Scripts\ashotscript.js" Line="11" Column="28" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-UnityScript" expanded="True">
+            <Node name="Scripts" expanded="True">
+              <Node name="alienfactory.js" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>x</Value>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

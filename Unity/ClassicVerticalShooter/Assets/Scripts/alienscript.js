@@ -2,7 +2,7 @@
 
 var aShot : GameObject;
 var state : int;
-var timer : float;
+var deathTimer : float;
 var ExplosionSound : AudioClip;
 
 //array with the shooting rates of the each level
@@ -43,6 +43,24 @@ function Update () {
 					Quaternion.identity
 				);	
 			}
+			
+			//reverse the direction of the aliens if they went too far
+			//also lower the aliens down to the next row
+			if(transform.position.x < -GameStateScript.screenBoundary){
+				alienfactory.alienDirection = 1;
+			}
+			if(transform.position.x > GameStateScript.screenBoundary){
+				alienfactory.alienDirection = 2;
+			}
+			
+			//move the aliens in the direction desired
+			if(alienfactory.alienDirection == 1){
+				//move the aliens to the right
+				transform.Translate(0.3 * Time.deltaTime, 0, 0, Space.World);
+			} else {
+				//move the aliens to the left
+				transform.Translate(-0.3 * Time.deltaTime, 0, 0, Space.World);
+			}
 		}
 	}
 	
@@ -62,10 +80,10 @@ function Update () {
 		//shrink the alien by 1%
 		transform.localScale = transform.localScale * 0.99;
 		
-		//decrement the timer
-		timer -= 0.1;
-		if(timer < 0){
-			//destroy the alien once the timer has ended
+		//decrement the deathTimer
+		deathTimer -= 0.1;
+		if(deathTimer < 0){
+			//destroy the alien once the deathTimer has ended
 			Destroy(gameObject);
 			
 			//decrement aliens and check for level change
@@ -90,8 +108,8 @@ function OnTriggerEnter(other : Collider){
 		//change the state of the alien to dieing
 		state = 1;
 		
-		//start the timer of the death sequence
-		timer = 5.0;
+		//start the deathTimer of the death sequence
+		deathTimer = 5.0;
 	
 		//destroy the shot that hit the alien
 		Destroy(other.gameObject);
