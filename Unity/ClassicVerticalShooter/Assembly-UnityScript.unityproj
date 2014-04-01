@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\alienfactory.js" />
      <Compile Include="Assets\Scripts\alienscript.js" />
      <Compile Include="Assets\Scripts\ashotscript.js" />
+     <Compile Include="Assets\Scripts\mothershipscript.js" />
      <Compile Include="Assets\Scripts\scoring.js" />
      <Compile Include="Assets\Scripts\scrollme.js" />
      <Compile Include="Assets\Scripts\shipscript.js" />

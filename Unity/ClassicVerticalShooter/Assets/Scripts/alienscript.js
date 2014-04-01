@@ -4,6 +4,7 @@ var aShot : GameObject;
 var state : int;
 var deathTimer : float;
 var ExplosionSound : AudioClip;
+var alienType : int;
 
 //array with the shooting rates of the each level
 static var levelArray = [50, 30, 20, 10];
@@ -14,7 +15,7 @@ function Start () {
 
 function Update () {
 	//simple animation
-	var index = Mathf.FloorToInt(Time.time * 12.0) % 4;
+	var index = Mathf.FloorToInt(Time.time * 7.0) % 4;
 	var size = Vector2(0.25, 1);
 	var offset = Vector2(index / 4.0, 0);
 	renderer.material.SetTextureScale("_MainTex", size);
@@ -99,8 +100,18 @@ function Update () {
 
 function OnTriggerEnter(other : Collider){
 	if(other.tag == "shot"){
-		//increment the score
-		scoring.score += 10;
+		//increment the score depending on alien type
+		if(alienType == 0){
+			scoring.score += 10;
+		} else if(alienType == 1){
+			scoring.score += 15;
+		} else if(alienType == 2){
+			scoring.score += 20;
+		} else if(alienType == 3){
+			scoring.score += 25;
+		} else if(alienType == 4){
+			scoring.score += 30;
+		}
 		
 		//play the explosion sound
 		audio.PlayClipAtPoint(ExplosionSound, transform.position);
