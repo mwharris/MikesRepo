@@ -32,7 +32,7 @@ function Update(){
 			size = Vector2(0.50, 1);
 			offset = Vector2(0.50, 0);
 		} else if(shipType == 2){
-			size = Vector2(0.50, 1);
+			size = Vector2(0.50, 0.9);
 			offset = Vector2(0, 0);
 		}
 		renderer.material.SetTextureScale("_MainTex", size);

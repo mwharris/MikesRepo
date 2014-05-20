@@ -1,21 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\alienfactory.js">
-    <Files>
-      <File FileName="Assets\Scripts\alienscript.js" Line="112" Column="27" />
-      <File FileName="Assets\Scripts\shipscript.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\alienfactory.js" Line="8" Column="29" />
-      <File FileName="Assets\Scripts\ashotscript.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameStateScript.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\scoring.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\mothershipscript.js" Line="48" Column="26" />
-    </Files>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-UnityScript" expanded="True">
             <Node name="Scripts" expanded="True">
-              <Node name="alienfactory.js" selected="True" />
+              <Node name="mothershipscript.js" selected="True" />
             </Node>
           </Node>
         </State>

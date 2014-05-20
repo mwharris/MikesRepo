@@ -1,9 +1,10 @@
 ﻿#pragma strict
 
 var shotSpeed : float;
+var currentLevel : int;
 
 function Start () {
-
+	currentLevel = scoring.level;
 }
 
 function Update () {
@@ -18,7 +19,8 @@ function Update () {
 	renderer.material.SetTextureOffset("_MainTex", offset);
 	
 	//delete the shot once it reaches off screen
-	if(transform.position.y > 6.0){
+	//or if the level changes
+	if(transform.position.y > 6.0 || currentLevel != scoring.level){
 		Destroy(gameObject);
 	}
 }

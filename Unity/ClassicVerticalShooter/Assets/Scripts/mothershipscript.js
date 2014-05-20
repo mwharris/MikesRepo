@@ -1,39 +1,54 @@
 ﻿#pragma strict
 
-var state : int;
+var mothershipState : int;
 var deathTimer : float;
 var ExplosionSound : AudioClip;
 var alienType : int;
+var direction : int;
+var motherShipDirection : int;
+var currentLevel : int;
+var rotations : int;
 
 function Start () {
-
+	mothershipState = 0;
+	currentLevel = scoring.level;
+	rotations = 0;
 }
 
 function Update () {
+	//simple animation
+	var index = Mathf.FloorToInt(Time.time * 7.0) % 4;
+	var size = Vector2(0.25, 1);
+	var offset = Vector2(index / 4.0, 0);
+	renderer.material.SetTextureScale("_MainTex", size);
+	renderer.material.SetTextureOffset("_MainTex", offset);
+	
 	if(GameStateScript.state != GameState.GameOver){
-		//if the game is still going on
-		if(GameStateScript.state == GameState.GamePlay){
+		//if the game is still going on OR if the ship was hit
+		if(GameStateScript.state == GameState.GamePlay || GameStateScript.state == GameState.Dying){
 			//reverse the direction of the mothership if they went too far
 			if(transform.position.x < -GameStateScript.screenBoundary){
-				alienfactory.alienDirection = 1;
-			}
-			if(transform.position.x > GameStateScript.screenBoundary){
-				alienfactory.alienDirection = 2;
+				//make the ship go right
+				motherShipDirection = 2;
+				rotations++;
+			} else if(transform.position.x > GameStateScript.screenBoundary){
+				//make the ship go left
+				motherShipDirection = 1;
+				rotations++;
 			}
 			
-			//move the aliens in the direction desired
-			if(alienfactory.alienDirection == 1){
-				//move the aliens to the right
-				transform.Translate(0.6 * Time.deltaTime, 0, 0, Space.World);
-			} else {
-				//move the aliens to the left
-				transform.Translate(-0.6 * Time.deltaTime, 0, 0, Space.World);
+			if(motherShipDirection == 1){
+				//move the mothership to the right
+				transform.Translate(-2.5 * Time.deltaTime, 0, 0, Space.World);
+			} else if(motherShipDirection == 2){
+				//move the mothership to the left
+				transform.Translate(2.5 * Time.deltaTime, 0, 0, Space.World);
 			}
 		}
 	}
 	
 	//if the mothership is dying, start the death sequence
-	if(state == 1){
+	if(mothershipState != 0){
 		//spin the mothership
 		transform.Rotate(0, 0, Time.deltaTime * 400.0);
 		
@@ -56,32 +71,25 @@ function Update () {
 		}
 	}
 	
-	//destroy the aliens if the game has ended
-	if(GameStateScript.state == GameState.PressStart){
+	//if the game ends or the level is changed
+	//or if it made on full rotation
+	if(GameStateScript.state == GameState.PressStart || currentLevel != scoring.level
+			|| rotations == 2){
+		//destroy the mothership
 		Destroy(gameObject);
 	}
 }
 
 function OnTriggerEnter(other : Collider){
 	if(other.tag == "shot"){
-		//increment the score depending on alien type
-		if(alienType == 0){
-			scoring.score += 10;
-		} else if(alienType == 1){
-			scoring.score += 15;
-		} else if(alienType == 2){
-			scoring.score += 20;
-		} else if(alienType == 3){
-			scoring.score += 25;
-		} else if(alienType == 4){
-			scoring.score += 30;
-		}
+		//increment the score
+		scoring.score += 100;
 		
 		//play the explosion sound
 		audio.PlayClipAtPoint(ExplosionSound, transform.position);
 		
 		//change the state of the alien to dieing
-		state = 1;
+		mothershipState = 1;
 		
 		//start the deathTimer of the death sequence
 		deathTimer = 5.0;
