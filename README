@@ -2,10 +2,8 @@ Personal GitHub repo for some independent projects I have been working on.
 
 PROJECTS
 -------------------
--	UPDATES SINCE LAST COMMIT
-    -   Added High Score loaded / saving
-    -   Added Mother Ship to each level
-    -   Difficulty tweaks
+-	UPDATES SINCE LAST 
+    -   Added Barriers to Space Invaders Clone
 
 -   C++ 
     -   Pong Clone

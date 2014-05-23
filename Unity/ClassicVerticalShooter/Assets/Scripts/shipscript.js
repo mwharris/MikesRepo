@@ -3,12 +3,14 @@
 var shipSpeed : float;
 var shot : GameObject;
 var alienfactoryvar : alienfactory;
+var barrierfactoryvar : barrierfactory;
 private var deathtimer : float;
 var ShotSound : AudioClip;
 var DeathSound : AudioClip;
 var GameOver : AudioClip;
 private var gameOverTimer : float;
 private var gameOverThresh : int;
+var shotTimer : int;
 
 static var shipType : int;
 
@@ -18,6 +20,7 @@ function Start () {
 	transform.position.y = -2.8;
 	gameOverThresh = 1.5;
 	gameOverTimer = 0;
+	shotTimer = 0;
 }
 
 function Update(){
@@ -55,6 +58,7 @@ function Update(){
 	if(GameStateScript.state == GameState.StartingPlay){
 		//create the enemies and change game state
 		alienfactoryvar.MakeAliens();
+		barrierfactoryvar.MakeBarriers();
 		GameStateScript.state = GameState.GamePlay;
 	}
 	
@@ -125,9 +129,15 @@ function ShipControl () {
 	}
 	
 	//fire a shot
-	if(Input.GetKeyDown("space")){
+	if(Input.GetKeyDown("space") && shotTimer <= 0){
 		Instantiate(shot, Vector3(transform.position.x, transform.position.y, 5), Quaternion.identity);
 		audio.PlayOneShot(ShotSound);
+		
+		//start a timer that will tell us when we can shoot again
+		shotTimer = 20;
+	}
+	if(shotTimer > 0){
+		shotTimer = shotTimer - Time.deltaTime;
 	}
 }
 
