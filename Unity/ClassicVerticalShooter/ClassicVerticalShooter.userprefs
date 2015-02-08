@@ -1,10 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\barrierfactory.js">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\ClassicScrollingShooter\Assets\Scripts\scrollingship.js">
     <Files>
-      <File FileName="Assets\Scripts\barrierfactory.js" Line="18" Column="15" />
-      <File FileName="Assets\Scripts\alienfactory.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\shipscript.js" Line="6" Column="22" />
+      <File FileName="..\ClassicScrollingShooter\Assets\Scripts\scrollingship.js" Line="16" Column="38" />
+      <File FileName="..\ClassicScrollingShooter\Assets\Scripts\bomb.js" Line="40" Column="17" />
+      <File FileName="..\ClassicScrollingShooter\Assets\Scripts\saucer.js" Line="71" Column="26" />
+      <File FileName="..\ClassicScrollingShooter\Assets\Scripts\rocket.js" Line="96" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

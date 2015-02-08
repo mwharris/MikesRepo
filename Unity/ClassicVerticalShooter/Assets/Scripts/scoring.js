@@ -103,11 +103,11 @@ function OnGUI(){
 	}
 
 	//display boxes on the screen for debug purposes
-	GUI.Box(Rect(10, 10, 90, 30), "Threshold: " + alienfactory.threshold);				//game state
-	GUI.Box(Rect(Screen.width - 100, 10, 90, 30), "Lives: " + lives);					//lives
-	GUI.Box(Rect(10, 50, 90, 30), "State: " + GameStateScript.state);					//game state
-	GUI.Box(Rect(Screen.width - 100, 50, 90, 30), "Aliens: " + scoring.alienCounter);	//aliens
-	GUI.Box(Rect(10, 90, 90, 30), "Level: " + scoring.level);							//level
+	//GUI.Box(Rect(10, 10, 90, 30), "Threshold: " + alienfactory.threshold);				//game state
+	//GUI.Box(Rect(Screen.width - 100, 10, 90, 30), "Lives: " + lives);					//lives
+	//GUI.Box(Rect(10, 50, 90, 30), "State: " + GameStateScript.state);					//game state
+	//GUI.Box(Rect(Screen.width - 100, 50, 90, 30), "Aliens: " + scoring.alienCounter);	//aliens
+	//GUI.Box(Rect(10, 90, 90, 30), "Level: " + scoring.level);							//level
 	
 	//display score and high score variables to the player
 	GUI.TextArea(Rect(Screen.width/4 - 70, Screen.height - 52, 120, 50), "Score: " + score, scoreText);

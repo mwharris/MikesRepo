@@ -2,55 +2,72 @@ Personal GitHub repo for some independent projects I have been working on.
 
 PROJECTS
 -------------------
--	UPDATES SINCE LAST 
-    -   Added Barriers to Space Invaders Clone
+-  UPDATES SINCE LAST 
+  -  Added Scramble clone
 
--   C++ 
-    -   Pong Clone
-        -   Simple 2D Pong Clone made using C++ and SQL Game Library
-        -   2 person gameplay
-            -	Left Player uses "W" Key for Up and "S" Key for Down
-            -	Right Player uses arrow keys for Up and Down
-        -	Players defend their area of the screen by bouncing the ball away
-        -	Knocking the ball off the opposite side of the screen scores a point
-        -	Click to start the game
-        -	First player to 7 wins and the game restarts
+-  C++ 
+  -  Pong Clone
+    -  Simple 2D Pong Clone made using C++ and SQL Game Library
+	  - 2 person gameplay
+        -  Left Player uses "W" Key for Up and "S" Key for Down
+          -	 Right Player uses arrow keys for Up and Down
+        -  Players defend their area of the screen by bouncing the ball away
+        -  Knocking the ball off the opposite side of the screen scores a point
+        -  Click to start the game
+        -  First player to 7 wins and the game restarts
 
--   Unity
-    -	ClassicPaddleGame (Pong Clone)
-        -	2 or 1 player 3D Pong Clone using Unity and Javascript
-            -	Audacity was used for the ball bounce sound
-            -	GIMP was used for the back ground playing field
-            -	All other assets were done with Unity and Javascript
-        -	Players defend their area of the screen by bouncing the ball away
-        -	Knocking the ball off the opposite side of the screen scores a point
-        -	Option to choose between single or 2 player
-            -	Single Player	
-                -	Use W and S keys to control left player
-                -	Right paddle is controlled by programmed AI
-            -	2 Player
-                -	Use W and S keys to control left player
-                -	Use Up and Down arrows to control the right player
-        -	NOTE: there is no ending sequence
-				
-    -	ClassicBrickGame (Breakout Clone)
-        -	Single player brick breaker game
-            -	Audacity was used for the ball bounce sound
-            -	GIMP was used for the crude background
-            -	Explosion, Death, and Start noises were used from Unity Asset Store
-            -	All other object were created using Unity
-        -	Player controls the paddle on the bottom using the Left and Right keys
-            -	The mouse can also be used
-        -	Destroy all the bricks to complete the game
-        -	Ball speeds up with every paddle, wall, and brick collision
-	
-    -	ClassicVerticalShooter (Space Invaders Clone)
-        -	Single player shooter game 
-            -	Audacity was used for missile and explosion sounds
-            -	GIMP was used for the background, alien sprites, ship sprite, and missiles
-            -	All other logic and objects were made in Unity
-        -	Player controls the ship on the bottom using the Left and Right arrows
-            -	Spacebar is used to shoot missiles
-        -	Enemies return fire and the player must avoid being shot
-        -	The player has 3 lives and see Game Over upon losing all of his lives
-        -	There are now 4 levels to the game, each with a harder difficulty than the last
+-  Unity
+    -  ClassicVerticalShooter (Scramble Clone)
+	  -  Single player side-scrolling arcade shooter
+	  -  Audacity was used to create all sounds in the game
+         -  Explosions, Lasers, Bombs
+      -  Blender was used to create all 3D models in the game
+         -  Terrain, Spaceships, UFOs, Rockets, Buildings, Bombs, Lasers
+	  -  Respawning and Checkpoint locations
+	     -  The player has 3 lives and there are periodics checkpoints
+		 -  When the player dies they will be respawned at the latest checkpoint
+		 -  All enemies that the user has killed since the checkpoint will be 
+		    respawned as well, as well as their scores
+	  -  Particle System Explosions
+	     -  Created explosions for any collisions using Unity Particle Systems
+	  -  Game UI
+	     -  Started creating a UI for the game using new Unity UI features
+	  
+    -  ClassicVerticalShooter (Space Invaders Clone)
+      -  Single player vertical shooter game 
+      -	 Audacity was used for missile and explosion sounds
+      -	 GIMP was used for the background, alien sprites, ship sprite, and missiles
+      -	 All other logic and objects were made in Unity
+      -  Player controls the ship on the bottom using the Left and Right arrows
+        -  Spacebar is used to shoot missiles
+      -  Enemies return fire and the player must avoid being shot
+      -  The player has 3 lives and see Game Over upon losing all of his lives
+      -  There are now 4 levels to the game, each with a harder difficulty than the last
+	  
+    -  ClassicBrickGame (Breakout Clone)
+      -	 Single player brick breaker game
+      -  Audacity was used for the ball bounce sound
+      -  GIMP was used for the crude background
+      -  Explosion, Death, and Start noises were used from Unity Asset Store
+      -  All other object were created using Unity
+      -  Player controls the paddle on the bottom using the Left and Right keys
+        -  The mouse can also be used
+      -  Destroy all the bricks to complete the game
+      -  Ball speeds up with every paddle, wall, and brick collision
+      -  NOTE: there is no ending sequence, this will be added in a future commit
+	  
+  -	 ClassicPaddleGame (Pong Clone)
+    -  2 or 1 player 3D Pong Clone using Unity and Javascript
+      -	 Audacity was used for the ball bounce sound
+      -	 GIMP was used for the back ground playing field
+        -  All other assets were done with Unity and Javascript
+      -	 Players defend their area of the screen by bouncing the ball away
+      -	 Knocking the ball off the opposite side of the screen scores a point
+      -	 Option to choose between single or 2 player
+        -  Single Player	
+          -	 Use W and S keys to control left player
+          -	Right paddle is controlled by programmed AI
+        -  2 Player
+          -	 Use W and S keys to control left player
+          -	 Use Up and Down arrows to control the right player
+      -	 NOTE: there is no ending sequence, this will be added in a future commit
