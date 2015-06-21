@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
 private var bombSpeed : float = 1.0;
-private var rotationTimer : float = 0.25;
+private var rotationTimer : float = 0.35;
 public var bombExplo : AudioClip;
 
 function Update () {
@@ -22,9 +22,6 @@ function Update () {
 	if(player && GameStateScript.state == GameState.GamePlay){
 		if(player.transform.position.x - transform.position.x > 2.0){
 			Destroy(gameObject);
-			
-			//also decrement the bomb counter
-			//scrollingship.bombCounter--;
 		}
 	}
 }
@@ -33,10 +30,7 @@ function Update () {
 function OnTriggerEnter(other : Collider){
 	//destroy the shot if we hit the terrain
 	if(other.tag == "terrain"){
-		//decrement the bomb counter
-		//scrollingship.bombCounter--;
-		
 		Destroy(gameObject);
-		audio.PlayClipAtPoint(bombExplo, transform.position);
+		GetComponent.<AudioSource>().PlayClipAtPoint(bombExplo, transform.position);
 	}
 }

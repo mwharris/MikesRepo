@@ -5,7 +5,7 @@ public var rocketExplodeSound : AudioClip;
 public var rocketExplosion : GameObject;
 public var initialX : float;
 public var initialY : float;
-
+public var sidewaysRocket : boolean = false;
 
 private var flightTimer : float = 0.0;
 private var launch : boolean = false;
@@ -28,9 +28,7 @@ function Update () {
 	
 	if(player && GameStateScript.state == GameState.GamePlay){
 		//if the player has come within range, launch the rocket
-		if((player.transform.position.x - transform.position.x < 0.5
-				&& player.transform.position.x > transform.position.x)
-				|| launch == true){
+		if(checkLaunchRules(player) == true){
 			launch = true;
 			transform.Translate(0, 0, rocketSpeed * Time.deltaTime);
 			flightTimer += Time.deltaTime;
@@ -50,13 +48,29 @@ function Update () {
 	}
 }
 
+function checkLaunchRules(player : GameObject){
+	if(sidewaysRocket == false 
+			&& player.transform.position.x - transform.position.x < 0.5 
+			&& player.transform.position.x > transform.position.x){
+		return true;
+	} else if(sidewaysRocket == true 
+			&& Mathf.Abs(player.transform.position.y - transform.position.y) < 0.27
+			&& player.transform.position.x - transform.position.x < 1){
+		return true;
+	} else if(launch == true){
+		return true;
+	} else {
+		return false;
+	}
+}
+
 function OnTriggerEnter(other : Collider){
 	var killed : boolean =  false;
 
 	//check if the ship crashed into this rocket
 	if(other.tag == "scrollingship"){
 		killed = true;
-		audio.PlayClipAtPoint(rocketExplodeSound, transform.position);
+		GetComponent.<AudioSource>().PlayClipAtPoint(rocketExplodeSound, transform.position);
 		Destroy(gameObject);
 
 		//start the death timer
@@ -80,8 +94,7 @@ function OnTriggerEnter(other : Collider){
 	
 		//add some score if it was a user shot that hit the rocket
 		scoring.score += scoring.rocketPoints;
-		scoring.numRocketsKilled++;
-		audio.PlayClipAtPoint(rocketExplodeSound, transform.position);
+		GetComponent.<AudioSource>().PlayClipAtPoint(rocketExplodeSound, transform.position);
 		Destroy(gameObject);
 		Destroy(other.gameObject);
 		
@@ -97,8 +110,7 @@ function OnTriggerEnter(other : Collider){
 		
 		//add some score if it was a user shot that hit the rocket
 		scoring.score += scoring.rocketPoints;
-		scoring.numRocketsKilled++;
-		audio.PlayClipAtPoint(rocketExplodeSound, transform.position);
+		GetComponent.<AudioSource>().PlayClipAtPoint(rocketExplodeSound, transform.position);
 		Destroy(gameObject);
 		Destroy(other.gameObject);
 		
@@ -110,7 +122,7 @@ function OnTriggerEnter(other : Collider){
 	//has been in flight for more than 1s
 	if(flightTimer > 1.0 && other.tag == "terrain"){
 		killed = true;
-		audio.PlayClipAtPoint(rocketExplodeSound, transform.position);
+		GetComponent.<AudioSource>().PlayClipAtPoint(rocketExplodeSound, transform.position);
 		Destroy(gameObject);
 		
 		//show the explosion

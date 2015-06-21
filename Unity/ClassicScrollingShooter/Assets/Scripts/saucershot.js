@@ -36,7 +36,7 @@ function OnTriggerEnter(other : Collider){
 	//destroy the shot if we hit the ship
 	if(other.tag == "scrollingship"){
 		Destroy(gameObject);
-		audio.PlayClipAtPoint(shipExplosionSound, transform.position);
+		GetComponent.<AudioSource>().PlayClipAtPoint(shipExplosionSound, transform.position);
 		
 		//show the explosion
 		Instantiate(shipExplosion, transform.position, transform.rotation);

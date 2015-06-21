@@ -17,7 +17,7 @@ function Update () {
 function OnTriggerEnter(other : Collider){
 	//destroy the shot if we hit the terrain
 	if(other.tag == "terrain"){
-		audio.PlayClipAtPoint(shotExplo, transform.position);
+		GetComponent.<AudioSource>().PlayClipAtPoint(shotExplo, transform.position);
 		Destroy(gameObject);
 	}
 }

@@ -1,19 +1,29 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-
+Project("{8FD949AB-046A-FB6A-8481-F416FE5DC827}") = "ClassicScrollingShooter", "Assembly-CSharp-vs.csproj", "{77B57CE9-6F03-2E0F-C281-A8683EF6B9E5}"
+EndProject
+Project("{8FD949AB-046A-FB6A-8481-F416FE5DC827}") = "ClassicScrollingShooter", "Assembly-CSharp-Editor-vs.csproj", "{6C4E36C9-C731-F1B7-6BB0-1EB79E5086CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-
+		{77B57CE9-6F03-2E0F-C281-A8683EF6B9E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77B57CE9-6F03-2E0F-C281-A8683EF6B9E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77B57CE9-6F03-2E0F-C281-A8683EF6B9E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77B57CE9-6F03-2E0F-C281-A8683EF6B9E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C4E36C9-C731-F1B7-6BB0-1EB79E5086CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C4E36C9-C731-F1B7-6BB0-1EB79E5086CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C4E36C9-C731-F1B7-6BB0-1EB79E5086CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C4E36C9-C731-F1B7-6BB0-1EB79E5086CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																	GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																																																																																																												GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

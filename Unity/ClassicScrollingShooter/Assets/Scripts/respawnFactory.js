@@ -10,6 +10,7 @@ var base : GameObject;
 
 function Update () {
 	if(GameStateScript.state == GameState.Respawning){
+		/*
 		//loop through the rockets that were destroyed and respawn them
 		for(var respawnLoc : RespawnLoc in rocketsToRespawn){
 			var rocketX : float = respawnLoc.x;
@@ -27,7 +28,6 @@ function Update () {
 					),
 					Quaternion.AngleAxis(270, Vector3.left)
 				);
-			
 			} 
 			//if not, apply a lesser rotation
 			else {
@@ -44,10 +44,10 @@ function Update () {
 		}
 			
 		//remove the score for the rockets that the player killed
-		scoring.score -= scoring.numRocketsKilled * scoring.rocketPoints;
+		//scoring.score -= scoring.numRocketsKilled * scoring.rocketPoints;
 		
 		//reset the count
-		scoring.numRocketsKilled = 0;
+		//scoring.numRocketsKilled = 0;
 		
 		//loop through the saucers that were destroyed and respawn them
 		for(var respawnLoc : RespawnLoc in saucersToRespawn){
@@ -64,8 +64,8 @@ function Update () {
 				Quaternion.AngleAxis(90, Vector3.left)
 			);
 			
-			//remove the score for this rocket
-			scoring.score -= scoring.saucerPoints;
+			//remove the score for this saucer
+			//scoring.score -= scoring.saucerPoints;
 		}
 		
 		//loop through the bases that were destroyed and respawn them
@@ -83,10 +83,10 @@ function Update () {
 				Quaternion.AngleAxis(90, Vector3.left)
 			);
 			
-			//remove the score for this rocket
-			scoring.score -= scoring.basePoints;
+			//remove the score for this base
+			//scoring.score -= scoring.basePoints;
 		}
-		
+		*/
 		//reset the lists
 		rocketsToRespawn = new Array();
 		saucersToRespawn = new Array();

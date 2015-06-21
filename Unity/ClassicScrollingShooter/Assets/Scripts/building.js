@@ -16,7 +16,7 @@ function OnTriggerEnter(other : Collider){
 	//check if the ship crashed into this base
 	if(other.tag == "scrollingship"){
 		killed = true;
-		audio.PlayClipAtPoint(baseExplo, transform.position);
+		GetComponent.<AudioSource>().PlayClipAtPoint(baseExplo, transform.position);
 		Destroy(gameObject);
 
 		//start the death timer
@@ -40,7 +40,7 @@ function OnTriggerEnter(other : Collider){
 		
 		//add some score if it was a user shot that hit the rocket
 		scoring.score += scoring.basePoints;
-		audio.PlayClipAtPoint(baseExplo, transform.position);
+		GetComponent.<AudioSource>().PlayClipAtPoint(baseExplo, transform.position);
 		Destroy(gameObject);
 		Destroy(other.gameObject);
 		
@@ -56,7 +56,7 @@ function OnTriggerEnter(other : Collider){
 		
 		//add some score if it was a user shot that hit the rocket
 		scoring.score += scoring.basePoints;
-		audio.PlayClipAtPoint(baseExplo, transform.position);
+		GetComponent.<AudioSource>().PlayClipAtPoint(baseExplo, transform.position);
 		Destroy(gameObject);
 		Destroy(other.gameObject);
 		

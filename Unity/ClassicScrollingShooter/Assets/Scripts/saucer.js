@@ -46,7 +46,7 @@ function OnTriggerEnter(other : Collider){
 	//check if the ship or shot hit us
 	if(other.tag == "scrollingship"){
 		killed = true;
-		audio.PlayClipAtPoint(saucerExplosionSound, transform.position);
+		GetComponent.<AudioSource>().PlayClipAtPoint(saucerExplosionSound, transform.position);
 		Destroy(gameObject);
 		
 		//show the explosion
@@ -73,7 +73,7 @@ function OnTriggerEnter(other : Collider){
 		Instantiate(saucerExplosion, transform.position, transform.rotation);
 		
 		//player the explsion sound and destroy the saucer
-		audio.PlayClipAtPoint(saucerExplosionSound, transform.position);
+		GetComponent.<AudioSource>().PlayClipAtPoint(saucerExplosionSound, transform.position);
 		Destroy(gameObject);
 		Destroy(other.gameObject);
 	}
@@ -87,7 +87,7 @@ function OnTriggerEnter(other : Collider){
 		Instantiate(saucerExplosion, transform.position, transform.rotation);
 		
 		//player the explsion sound and destroy the saucer
-		audio.PlayClipAtPoint(saucerExplosionSound, transform.position);
+		GetComponent.<AudioSource>().PlayClipAtPoint(saucerExplosionSound, transform.position);
 		Destroy(gameObject);
 		Destroy(other.gameObject);
 	}

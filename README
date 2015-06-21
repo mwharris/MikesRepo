@@ -3,7 +3,13 @@ Personal GitHub repo for some independent projects I have been working on.
 PROJECTS
 -------------------
 -  UPDATES SINCE LAST 
-  -  Added Scramble clone
+  -  SCRAMBLE
+	 -  Added level 3
+	 -  Added level 4 IN PROGRESS
+	 -  Tweaked some bomb / laser fire rate 
+	 -  Created sideways shooting rockets
+	 -  Large UI updates
+	 -  Made some general gameplay improvements to terrain and viewport
 
 -  C++ 
   -  Pong Clone
@@ -17,7 +23,7 @@ PROJECTS
         -  First player to 7 wins and the game restarts
 
 -  Unity
-    -  ClassicVerticalShooter (Scramble Clone)
+    -  ClassicScrollingShooter (Scramble Clone)
 	  -  Single player side-scrolling arcade shooter
 	  -  Audacity was used to create all sounds in the game
          -  Explosions, Lasers, Bombs
@@ -26,8 +32,6 @@ PROJECTS
 	  -  Respawning and Checkpoint locations
 	     -  The player has 3 lives and there are periodics checkpoints
 		 -  When the player dies they will be respawned at the latest checkpoint
-		 -  All enemies that the user has killed since the checkpoint will be 
-		    respawned as well, as well as their scores
 	  -  Particle System Explosions
 	     -  Created explosions for any collisions using Unity Particle Systems
 	  -  Game UI
