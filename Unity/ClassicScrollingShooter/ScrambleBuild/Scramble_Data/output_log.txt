@@ -1,4 +1,4 @@
-Initialize engine version: 5.0.0f4 (5b98b70ebeb9)
+Initialize engine version: 5.1.1f1 (2046fc06d4d8)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
@@ -14,7 +14,66 @@ Platform assembly: C:\Users\Spanky\Documents\Unity Projects\ClassicScrollingShoo
 Loading C:\Users\Spanky\Documents\Unity Projects\ClassicScrollingShooter\ScrambleBuild\Scramble_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
 Platform assembly: C:\Users\Spanky\Documents\Unity Projects\ClassicScrollingShooter\ScrambleBuild\Scramble_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Spanky\Documents\Unity Projects\ClassicScrollingShooter\ScrambleBuild\Scramble_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.347 seconds
+Platform assembly: C:\Users\Spanky\Documents\Unity Projects\ClassicScrollingShooter\ScrambleBuild\Scramble_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Spanky\Documents\Unity Projects\ClassicScrollingShooter\ScrambleBuild\Scramble_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Spanky\Documents\Unity Projects\ClassicScrollingShooter\ScrambleBuild\Scramble_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Spanky\Documents\Unity Projects\ClassicScrollingShooter\ScrambleBuild\Scramble_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.109 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Spanky\Documents\Unity Projects\ClassicScrollingShooter\ScrambleBuild\Scramble_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Spanky\Documents\Unity Projects\ClassicScrollingShooter\ScrambleBuild\Scramble_Data\Managed\System.dll (this message is harmless)
+Can not play a disabled audio source
+ 
+(Filename:  Line: 1482)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.097039 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 6231.
+Total: 3.885582 ms (FindLiveObjects: 0.608223 ms CreateObjectMapping: 0.145471 ms MarkObjects: 3.061785 ms  DeleteObjects: 0.038089 ms)
+
+Platform assembly: C:\Users\Spanky\Documents\Unity Projects\ClassicScrollingShooter\ScrambleBuild\Scramble_Data\Managed\UnityScript.Lang.dll (this message is harmless)
+Platform assembly: C:\Users\Spanky\Documents\Unity Projects\ClassicScrollingShooter\ScrambleBuild\Scramble_Data\Managed\Boo.Lang.dll (this message is harmless)
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 12.610617 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 6256.
+Total: 3.748620 ms (FindLiveObjects: 0.531233 ms CreateObjectMapping: 0.094009 ms MarkObjects: 3.091771 ms  DeleteObjects: 0.029985 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 13.577454 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 6256.
+Total: 4.307003 ms (FindLiveObjects: 0.832711 ms CreateObjectMapping: 0.113864 ms MarkObjects: 3.340166 ms  DeleteObjects: 0.018234 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 13.233024 ms
+
+Unloading 139 unused Assets to reduce memory usage. Loaded Objects now: 342.
+Total: 0.955085 ms (FindLiveObjects: 0.055514 ms CreateObjectMapping: 0.027554 ms MarkObjects: 0.417368 ms  DeleteObjects: 0.453432 ms)
+
+Can not play a disabled audio source
+ 
+(Filename:  Line: 1482)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.871612 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 6260.
+Total: 3.947580 ms (FindLiveObjects: 0.601740 ms CreateObjectMapping: 0.096845 ms MarkObjects: 3.212929 ms  DeleteObjects: 0.034037 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 11.779121 ms
+
+Unloading 139 unused Assets to reduce memory usage. Loaded Objects now: 342.
+Total: 1.008979 ms (FindLiveObjects: 0.052272 ms CreateObjectMapping: 0.031606 ms MarkObjects: 0.504489 ms  DeleteObjects: 0.419800 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.870396 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 6260.
+Total: 4.068333 ms (FindLiveObjects: 0.440871 ms CreateObjectMapping: 0.095224 ms MarkObjects: 3.495362 ms  DeleteObjects: 0.034443 ms)
+

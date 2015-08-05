@@ -2,23 +2,33 @@
 
 private var bombSpeed : float = 1.0;
 private var rotationTimer : float = 0.35;
+private var bombStartTime : float = 0;
 public var bombExplo : AudioClip;
+public var player : GameObject;
+
+function Awake(){
+	player = GameObject.Find("ScrollingShip");
+}
+
+function Start(){
+	bombStartTime = Time.time;
+}
 
 function Update () {
 	//move the bomb forwards
 	transform.Translate(0, 0, ((0.3 + bombSpeed) * Time.deltaTime));
 	
 	//slowly rotate the bomb downards
-	rotationTimer -= Time.deltaTime;
-	if(rotationTimer <= 0){
-		if(transform.rotation.x < .47){
-			transform.Rotate(3,0,0);
+	var timeSinceStart = Time.time - bombStartTime;
+	if(timeSinceStart >= rotationTimer){
+		if(transform.rotation.x < 0.5){
+			transform.Rotate(1,0,0);
 		} else {
-			transform.rotation.x = 0.47;
+			transform.rotation.x = 0.5;
 		}
 	}
 
-	var player : GameObject = GameObject.Find("ScrollingShip");
+	//destroy the bomb if it is too far away from the ship
 	if(player && GameStateScript.state == GameState.GamePlay){
 		if(player.transform.position.x - transform.position.x > 2.0){
 			Destroy(gameObject);

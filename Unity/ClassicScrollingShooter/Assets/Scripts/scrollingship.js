@@ -10,17 +10,23 @@ public var shipExplosionSound : AudioClip;
 public var shipXLoc : int;
 public var shipYLoc : int;
 
-public static var deathTimer = 100;
+public static var deathTimer : int;
 
 public var shotFireRate : float;
 public var bombFireRate : float;
 private var shotTimer = 0;
 private var bombTimer = 0;
-public static var bombCounter = 0;
+private var lastShot : float = 0;
+private var lastBomb : float = 0;
+public static var bombCounter : int;
 
 public var checkpointPanel : GameObject;
 private var checkpointTimer  = 0;
 private var mostRecentCheckpoint = 1;
+
+public var cameraGameObject : GameObject;
+public var leftBound : GameObject;
+public var rightBound : GameObject;
 
 //level one checkpoints
 private final var checkpoint1XLoc = 22;
@@ -46,33 +52,35 @@ private final var checkpoint8YLoc = 1.5;
 private final var checkpoint9XLoc = -38.4;
 private final var checkpoint9YLoc = 1.53;
 
-function Start(){
+//level three checkpoints
+private final var checkpoint10XLoc = -50;
+private final var checkpoint10YLoc = 0.423;
+private final var checkpoint11XLoc = -56.451;
+private final var checkpoint11YLoc = 0.3912;
+private final var checkpoint12XLoc = -59;
+private final var checkpoint12YLoc = 0.385;
+private final var checkpoint13XLoc = -63.7;
+private final var checkpoint13YLoc = 0.385;
+private final var checkpoint14XLoc = -69;
+private final var checkpoint14YLoc = 2.25;
+
+function Awake(){
 	//don't show the checkpoint panel until a checkpoint has been reached
 	checkpointPanel.SetActive(false);
-}
-
-function OnGUI(){
-	//GUI.Box(Rect(10, 90, 120, 30), "Loc: " + transform.position.x);
 	
-	GUI.Box(Rect(10, 90, 120, 30), "Shot Timer: " + shotTimer);
-	
-	var leftBound : GameObject = GameObject.Find("LeftBound");
-	var rightBound : GameObject = GameObject.Find("RightBound");
-	var leftX : float = leftBound.transform.position.x;
-	var rightX : float = rightBound.transform.position.x;
+	//initialize static variables
+	deathTimer = 100;
+	bombCounter = 0;
 }
 
 function Update () {	
 	//store the current x and y location
 	shipXLoc = transform.position.x;
 	shipYLoc = transform.position.y;
-	
-	//get a handle to the camera object
-	var camera : GameObject = GameObject.Find("Main Camera");
 		
 	//only handle input if the game is running and the ship is alive
 	if(GameStateScript.state == GameState.GamePlay){
-		handleShipInputs(camera);
+		handleShipInputs(cameraGameObject);
 		
 		//update the checkpoint if we reached it
 		if(transform.position.x < checkpoint2XLoc && mostRecentCheckpoint == 1){
@@ -91,11 +99,21 @@ function Update () {
 			handleCheckpointReached();
 		} else if( transform.position.x < checkpoint9XLoc && mostRecentCheckpoint == 8){
 			handleCheckpointReached();
+		} else if( transform.position.x < checkpoint10XLoc && mostRecentCheckpoint == 9){
+			handleCheckpointReached();
+		} else if( transform.position.x < checkpoint11XLoc && mostRecentCheckpoint == 10){
+			handleCheckpointReached();
+		} else if( transform.position.x < checkpoint12XLoc && mostRecentCheckpoint == 11){
+			handleCheckpointReached();
+		} else if( transform.position.x < checkpoint13XLoc && mostRecentCheckpoint == 12){
+			handleCheckpointReached();
+		} else if( transform.position.x < checkpoint14XLoc && mostRecentCheckpoint == 13){
+			handleCheckpointReached();
 		}
 	} 
 	//if the ship is dead call a method to handle it's death
 	else if(GameStateScript.state == GameState.Dying){
-		handleShipDeath(camera);
+		handleShipDeath(cameraGameObject);
 	}
 	
 	//if the checkpoint reached popup is displayed
@@ -115,22 +133,13 @@ function handleCheckpointReached(){
 	//increment the checkpoint counter
 	mostRecentCheckpoint++;
 	
-	//update the saved checkpoint score
-	scoring.savedCheckpointScore = scoring.score;
-	
 	//show the checkpoint indicator and start the checkpoint timer
 	checkpointPanel.SetActive(true);
 	checkpointTimer = 600;
-	
-	//wipe out the respawn arrays so enemies from the previous 
-	//checkpoint will not be reloaded
-	respawnFactory.rocketsToRespawn = new Array();
-	respawnFactory.saucersToRespawn = new Array();
-	respawnFactory.basesToRespawn = new Array();
 }
 
 function handleShipDeath(camera : GameObject){
-	//decrement the death timer timer to count down to respawn
+	//decrement the death timer to count down to respawn
 	deathTimer -= 0.1;
 	
 	//if the death time has run out
@@ -163,6 +172,21 @@ function handleShipDeath(camera : GameObject){
 		} else if(mostRecentCheckpoint == 9){
 			transform.position.x = checkpoint9XLoc;
 			transform.position.y = checkpoint9YLoc;
+		} else if(mostRecentCheckpoint == 10){
+			transform.position.x = checkpoint10XLoc;
+			transform.position.y = checkpoint10YLoc;
+		} else if(mostRecentCheckpoint == 11){
+			transform.position.x = checkpoint11XLoc;
+			transform.position.y = checkpoint11YLoc;
+		} else if(mostRecentCheckpoint == 12){
+			transform.position.x = checkpoint12XLoc;
+			transform.position.y = checkpoint12YLoc;
+		} else if(mostRecentCheckpoint == 13){
+			transform.position.x = checkpoint13XLoc;
+			transform.position.y = checkpoint13YLoc;
+		} else if(mostRecentCheckpoint == 14){
+			transform.position.x = checkpoint14XLoc;
+			transform.position.y = checkpoint14YLoc;
 		}
 						
 		//move the camera to the same location as the ship
@@ -182,10 +206,7 @@ function handleShipDeath(camera : GameObject){
 	}
 }
 
-function handleShipInputs(camera : GameObject){
-	var leftBound : GameObject = GameObject.Find("LeftBound");
-	var rightBound : GameObject = GameObject.Find("RightBound");
-	
+function handleShipInputs(camera : GameObject){	
 	//get the camera's x and y position
 	var leftX : float = leftBound.transform.position.x;
 	var rightX : float = rightBound.transform.position.x;
@@ -208,12 +229,46 @@ function handleShipInputs(camera : GameObject){
 	//constantly move the ship right
 	transform.Translate(-0.3 * Time.deltaTime, 0, 0);
 	
-	//controls for firing shots and bombs
-	//allow the player to hold the keys down to fire
-	if(Input.GetKey("space") && shotTimer <= 0){
+	//controls for firing shots
+	//allow the player to hold the key down to fire
+	if(Input.GetKey("space")){
+		Fire();
+	} 
+	
+	//get the number of bombs on the screen
+	var bombs : GameObject[];
+	bombs = GameObject.FindGameObjectsWithTag("bomb");
+	
+	//controls for firing bombs
+	//allow the player to hold the key down to fire
+	//but only allow 2 bombs on screen at a time
+	if(Input.GetKey("b") && bombs.length < 2){
+		DropBomb();
+	}
+}
+
+function DropBomb(){
+	if(Time.time > bombFireRate + lastBomb){
+		//play the shot sound
+		GetComponent.<AudioSource>().PlayOneShot(bombSound);
+
+		//create a bullet and shoot it
+		Instantiate(
+			bombPrefab, 
+			transform.position,
+			bombPrefab.transform.rotation
+		);
+		
+		//start a timer to stagger the bomb fire rate
+		lastBomb = Time.time;
+	}
+}
+
+function Fire() {
+	if(Time.time > shotFireRate + lastShot){
 		//play the shot sound
 		GetComponent.<AudioSource>().PlayOneShot(shotSound);
-	
+
 		//create a bullet and shoot it
 		Instantiate(
 			shotPrefab, 
@@ -222,37 +277,7 @@ function handleShipInputs(camera : GameObject){
 		);
 		
 		//start a timer to stagger the shot fire rate
-		shotTimer = shotFireRate;
-	} 
-	
-	//get the number of bombs on the screen
-	var bombs : GameObject[];
-	bombs = GameObject.FindGameObjectsWithTag("bomb");
-	
-	//controls for firing bombs
-	//allow the player to hold the keys down to fire
-	//but only allow 2 bombs on screen at a time
-	if(Input.GetKey("b") && bombTimer <= 0 && bombs.length < 2){
-		//play the shot sound
-		GetComponent.<AudioSource>().PlayOneShot(bombSound);
-	
-		//create a bullet and shoot it
-		Instantiate(
-			bombPrefab, 
-			transform.position,
-			bombPrefab.transform.rotation
-		);
-		
-		//start a timer to stager the bomb fire rate
-		bombTimer = bombFireRate;
-	}
-	
-	//decrement the fire rate timers
-	if(shotTimer > 0) {
-		shotTimer -= Time.deltaTime;
-	}
-	if(bombTimer > 0) {
-		bombTimer -= Time.deltaTime;
+		lastShot = Time.time;
 	}
 }
 

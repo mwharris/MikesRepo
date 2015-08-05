@@ -183,8 +183,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_AnchoredPosition: {x: -5.00000048, y: 1.62920696e-06}
+  m_SizeDelta: {x: -10, y: -20}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &158867220
 GameObject:
@@ -269,8 +269,7 @@ MonoBehaviour:
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -316,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delegates:
+  m_Delegates:
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -326,8 +325,7 @@ MonoBehaviour:
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -344,8 +342,42 @@ MonoBehaviour:
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 158867226}
+          m_MethodName: HoverButtonTextEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 158867226}
+          m_MethodName: HoverButtonTextExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -367,6 +399,7 @@ MonoBehaviour:
   buttonClick: {fileID: 8300000, guid: 5ab91a2740f8b4476a8946f20def321f, type: 3}
   buttonHover: {fileID: 8300000, guid: 3b7a828a646174088aa48ee1db9c439c, type: 3}
   onlyActiveOnGameOver: 0
+  onlyActiveOnGameFinished: 0
 --- !u!82 &158867227
 AudioSource:
   m_ObjectHideFlags: 0
@@ -678,6 +711,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &346772408
 MonoBehaviour:
@@ -736,8 +770,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: 5, y: 0}
+  m_SizeDelta: {x: 9.99989986, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &348122601
 MonoBehaviour:
@@ -797,8 +831,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7, y: -126.5}
-  m_SizeDelta: {x: -24, y: 253}
+  m_AnchoredPosition: {x: -7, y: -301.5}
+  m_SizeDelta: {x: -24, y: 603}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &352739328
 MonoBehaviour:
@@ -826,20 +860,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Scramble is a side-scrolling arcade shooter.  Your mission is to infiltrate
-    an alien base with your ship and destroy as many threats as possible.  Targets
+    the enemy base with your ship and destroy as many threats as possible.  Targets
     include anti-air missiles, enemy ships, and fuel cell buildings.\n\nYour ship
     is controlled using WASD keys.  Using the SPACE bar you can fire your lasers.
     \ Lasers are your primary weapon for destroying incoming missiles and enemy ships.
     \ For grounded targets, the B key will fire a bomb which will slowly fall to the
     ground.  Bombs are useful for reaching grounded fuel cells or missiles.  However,
-    bombs have a slow fire rate and only 2 can be used at a time.\n\nEach missile,
-    ship, or fuel cell destroyed will increase your score.  Missiles are worth 100
-    points, fuel cells are 300, and ships are worth 600.The more enemies you kill,
-    the higher your score.\n\nThere are 3 sections to the enemy base with a checkpoint
-    at the beginning of each.  The game will end once you reach the end of the enemy
-    base.  You will only have 3 lives to destroy as many enemies as possible so use
-    them wisely.  \n\nThis is an arcade game so the objective is to get as many kills
-    before reaching the end.  But most importantly: HAVE FUN!"
+    only 2 can be used at a time.\n\nEach missile, ship, or fuel cell destroyed will
+    increase your score.  Missiles are worth 100 points, fuel cells are 300, and ships
+    are worth 600.  The enemy headquarters are worth 1000 but you can only find them
+    if you reach the end.  The more enemies you kill, the higher your score.\n\nThere
+    are 4 sections to the enemy base with checkpoints within each section.  The game
+    will end once you reach the end of the enemy base and destroy the headquarters.
+    \ You will only have 3 lives to destroy as many enemies as possible so use them
+    wisely.  If all lives are lost you can retry from the most current checkpoint
+    but it will reset your score.  \n\nThis is an arcade game so the objective is
+    to get as many kills before reaching the end.  But most importantly: HAVE FUN!"
 --- !u!222 &352739329
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1047,6 +1083,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &816593597
 Transform:
   m_ObjectHideFlags: 0
@@ -1068,7 +1105,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 769bb7c0fea23094b8c8ae4851f203e5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a716130e5ecf94cfa9514c1ae65a516b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1451,13 +1488,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1142795755}
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1006582499}
         m_MethodName: ToggleControlsMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1503,7 +1550,7 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delegates:
+  m_Delegates:
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -1513,8 +1560,7 @@ MonoBehaviour:
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: SplashPanel/HowToButton
@@ -1531,8 +1577,42 @@ MonoBehaviour:
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SplashPanel/HowToButton
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1142795755}
+          m_MethodName: HoverButtonTextEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SplashPanel/HowToButton
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1142795755}
+          m_MethodName: HoverButtonTextExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: SplashPanel/HowToButton
@@ -1554,6 +1634,7 @@ MonoBehaviour:
   buttonClick: {fileID: 8300000, guid: 5ab91a2740f8b4476a8946f20def321f, type: 3}
   buttonHover: {fileID: 8300000, guid: 3b7a828a646174088aa48ee1db9c439c, type: 3}
   onlyActiveOnGameOver: 0
+  onlyActiveOnGameFinished: 0
 --- !u!82 &1142795756
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1784,8 +1865,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .950478971, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -.300003052, y: -.00122070312}
-  m_SizeDelta: {x: 0, y: .600006104}
+  m_AnchoredPosition: {x: -.150024414, y: -.00122070312}
+  m_SizeDelta: {x: .299959987, y: 1}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1487734157
 MonoBehaviour:
@@ -1826,7 +1907,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 348122600}
   m_Direction: 3
   m_Value: 1
-  m_Size: .61629945
+  m_Size: .332815886
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1894,8 +1975,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: .950478971, y: 1}
-  m_AnchoredPosition: {x: 9.80000019, y: .149389997}
-  m_SizeDelta: {x: 19.7000008, y: .298799992}
+  m_AnchoredPosition: {x: -.174962997, y: -.501221895}
+  m_SizeDelta: {x: -.25, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1622147330
 MonoBehaviour:
@@ -2108,8 +2189,7 @@ MonoBehaviour:
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2155,7 +2235,7 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delegates:
+  m_Delegates:
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -2165,8 +2245,7 @@ MonoBehaviour:
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -2183,8 +2262,42 @@ MonoBehaviour:
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1700579398}
+          m_MethodName: HoverButtonTextEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1700579398}
+          m_MethodName: HoverButtonTextExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -2206,6 +2319,7 @@ MonoBehaviour:
   buttonClick: {fileID: 8300000, guid: 5ab91a2740f8b4476a8946f20def321f, type: 3}
   buttonHover: {fileID: 8300000, guid: 3b7a828a646174088aa48ee1db9c439c, type: 3}
   onlyActiveOnGameOver: 0
+  onlyActiveOnGameFinished: 0
 --- !u!82 &1700579399
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2391,7 +2505,7 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delegates:
+  m_Delegates:
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -2401,8 +2515,7 @@ MonoBehaviour:
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -2419,8 +2532,42 @@ MonoBehaviour:
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1822694146}
+          m_MethodName: HoverButtonTextEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1822694146}
+          m_MethodName: HoverButtonTextExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -2472,8 +2619,18 @@ MonoBehaviour:
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1822694146}
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2591,6 +2748,7 @@ MonoBehaviour:
   buttonClick: {fileID: 8300000, guid: 5ab91a2740f8b4476a8946f20def321f, type: 3}
   buttonHover: {fileID: 8300000, guid: 3b7a828a646174088aa48ee1db9c439c, type: 3}
   onlyActiveOnGameOver: 0
+  onlyActiveOnGameFinished: 0
 --- !u!1 &1845483598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2812,8 +2970,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: .844985962, y: -.0357131958}
-  m_SizeDelta: {x: 513.690002, y: 362}
+  m_AnchoredPosition: {x: -2.0802021e-05, y: -.109981447}
+  m_SizeDelta: {x: 377, y: 277}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2124666479
 MonoBehaviour:

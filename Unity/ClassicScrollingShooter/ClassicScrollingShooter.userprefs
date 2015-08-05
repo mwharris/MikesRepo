@@ -1,13 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\scoring.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\bomb.js">
     <Files>
-      <File FileName="Assets\Scripts\scrollingship.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameOverManager.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameStateScript.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\respawnFactory.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\scoring.js" Line="16" Column="11" />
-      <File FileName="Assets\Scripts\rocket.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\saucer.js" Line="32" Column="17" />
+      <File FileName="Assets\Scripts\saucershot.js" Line="28" Column="68" />
+      <File FileName="Assets\Scripts\scoring.js" Line="35" Column="4" />
+      <File FileName="Assets\Scripts\scrollingship.js" Line="200" Column="31" />
+      <File FileName="Assets\Scripts\shipshot.js" Line="18" Column="23" />
+      <File FileName="Assets\Scripts\SplashScreenManager.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\bomb.js" Line="25" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

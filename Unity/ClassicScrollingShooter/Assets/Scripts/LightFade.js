@@ -1,5 +1,6 @@
 ﻿#pragma strict
 
 function Update () {
-	GetComponent.<Light>().range = Mathf.Lerp(GetComponent.<Light>().range, 0, Time.deltaTime);
+	var light : Light = GetComponent.<Light>();
+	light.range = Mathf.Lerp(light.range, 0, Time.deltaTime);
 }

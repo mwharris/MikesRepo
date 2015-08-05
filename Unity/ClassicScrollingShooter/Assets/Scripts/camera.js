@@ -1,18 +1,14 @@
 ﻿#pragma strict
 
+public var player : GameObject;
+
 //initialize the camera's x position to the scrolling ship
 function Start(){
-	//get a handle to the ship object
-	var player : GameObject = GameObject.Find("ScrollingShip");
-	
-	//move the camera
+	//move the camera to the player's position
 	transform.position = new Vector3(player.transform.position.x - 0.7, player.transform.position.y, transform.position.z);
 }
 
-function Update () {
-	//get a handle to the ship object
-	var player : GameObject = GameObject.Find("ScrollingShip");
-	
+function Update () {	
 	//only move the camera if the player is still alive
 	if(player && GameStateScript.state == GameState.GamePlay){
 		//get the player's y position

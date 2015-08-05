@@ -56,8 +56,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: -.685414195, y: -.173803031, z: .173802987, w: .685414076}
-  m_LocalPosition: {x: 10.4663572, y: 1.30436099, z: 0}
+  m_LocalRotation: {x: -.707106888, y: 0, z: -0, w: .707106769}
+  m_LocalPosition: {x: 19.3729992, y: 1.21319413, z: 0}
   m_LocalScale: {x: .0199999996, y: .0199999996, z: .0199999996}
   m_Children:
   - {fileID: 400000}
@@ -152,8 +152,9 @@ MonoBehaviour:
   rocketSpeed: .5
   rocketExplodeSound: {fileID: 8300000, guid: 4a46782b6a4544fa089a35523f50e2a0, type: 3}
   rocketExplosion: {fileID: 100002, guid: 5ec908e8be8998845b92ca28fad5a5ec, type: 2}
-  initialX: 0
-  initialY: 0
+  sidewaysRocket: 0
+  sidewaysBackwardRocket: 0
+  player: {fileID: 0}
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1249,7 +1250,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100002}

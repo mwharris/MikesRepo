@@ -6,6 +6,7 @@ var splashPanel : GameObject;
 var controlsPanel : GameObject;
 var loadingPanel : GameObject;
 var buttonClick : AudioClip;
+private var buttonText : GameObject;
 
 function Start () {
 	//set the canvas variable to the SplashCanvas

@@ -1,12 +1,40 @@
 fileFormatVersion: 2
 guid: 1a786d2896fd5b84c9bacc891f34d494
 ModelImporter:
-  serializedVersion: 15
+  serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Grid_036_MeshPart0
+    100004: Grid_036_MeshPart1
+    100006: Grid_020
+    100008: Grid_029
+    100010: Grid_036
+    100012: Grid_038_MeshPart0
+    100014: Grid_038_MeshPart1
     400000: //RootNode
+    400002: Grid_036_MeshPart0
+    400004: Grid_036_MeshPart1
+    400006: Grid_020
+    400008: Grid_029
+    400010: Grid_036
+    400012: Grid_038_MeshPart0
+    400014: Grid_038_MeshPart1
     2300000: //RootNode
+    2300002: Grid_036_MeshPart0
+    2300004: Grid_036_MeshPart1
+    2300006: Grid_020
+    2300008: Grid_029
+    2300010: Grid_036
+    2300012: Grid_038_MeshPart0
+    2300014: Grid_038_MeshPart1
     3300000: //RootNode
+    3300002: Grid_036_MeshPart0
+    3300004: Grid_036_MeshPart1
+    3300006: Grid_020
+    3300008: Grid_029
+    3300010: Grid_036
+    3300012: Grid_038_MeshPart0
+    3300014: Grid_038_MeshPart1
     4300000: Grid_024
     4300002: Grid_013
     4300004: Grid_020
@@ -14,6 +42,10 @@ ModelImporter:
     4300008: Grid_029
     4300010: Grid_007
     4300012: Grid_036
+    4300014: Grid_036_MeshPart0
+    4300016: Grid_036_MeshPart1
+    4300018: Grid_038_MeshPart0
+    4300020: Grid_038_MeshPart1
     7400000: Default Take
     9500000: //RootNode
   materials:
@@ -24,6 +56,11 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -42,11 +79,13 @@ ModelImporter:
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
+    keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
@@ -67,4 +106,7 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
+  additionalBone: 0
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -5,6 +5,11 @@ var shipExplosionSound : AudioClip;
 var shipExplosion : GameObject;
 var startDistance : int;
 var distance : float = 0.0;
+var player : GameObject;
+
+function Awake(){
+	player = GameObject.Find("ScrollingShip");
+}
 
 function Start(){
 	startDistance = transform.position.x;
@@ -13,7 +18,6 @@ function Start(){
 function Update () {
 	transform.Translate(0, shotSpeed * Time.deltaTime, 0);
 	
-	var player : GameObject = GameObject.Find("ScrollingShip");
 	if(player && GameStateScript.state == GameState.GamePlay){
 		//destroy the shot if it gets too far away from the player
 		if(player.transform.position.x - transform.position.x > 3.0){
@@ -21,7 +25,7 @@ function Update () {
 		}
 	}
 	
-	//destroy the shot if it gets too far away
+	//destroy the shot if it gets too far away from the start distance
 	if(transform.position.x - startDistance > 2.0){
 		Destroy(gameObject);
 	}

@@ -14,8 +14,7 @@ function Start () {
 
 function Update () {
 	//only show the Pause menu if the game is being played
-	if(GameStateScript.state == GameState.GamePlay
-	   || GameStateScript.state == GameState.Paused){
+	if(GameStateScript.state == GameState.GamePlay || GameStateScript.state == GameState.Paused){
 		//if Escape key is pressed
 		if(Input.GetKeyDown(KeyCode.Escape)){
 			//call a helper function to pause the game

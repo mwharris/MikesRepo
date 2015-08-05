@@ -7,6 +7,11 @@ private var centerY : float;
 private var saucerTime : float;
 public var saucerExplosionSound : AudioClip;
 public var saucerExplosion : GameObject;
+public var player : GameObject;
+
+function Awake(){
+	player = GameObject.Find("ScrollingShip");
+}
 
 function Start () {
 	saucerTime = 0;
@@ -19,8 +24,7 @@ function Update () {
 	transform.position.x = centerX + radius * Mathf.Sin(saucerTime * 4.0);
 	transform.position.y = centerY + radius * Mathf.Cos(saucerTime * 4.0);
 	
-	//if the ship is more than 3 units away
-	var player : GameObject = GameObject.Find("ScrollingShip");
+	//if the ship is less than 3 units away
 	if(player && GameStateScript.state == GameState.GamePlay){
 		if(player.transform.position.x - transform.position.x < 3.0){
 			//fire a shot if saucerTime is half of Pi
@@ -40,12 +44,10 @@ function Update () {
 	}
 }
 
-function OnTriggerEnter(other : Collider){
-	var killed : boolean =  false;
-	
+function OnTriggerEnter(other : Collider){	
 	//check if the ship or shot hit us
 	if(other.tag == "scrollingship"){
-		killed = true;
+		//play the explosion sound and destroy the saucer
 		GetComponent.<AudioSource>().PlayClipAtPoint(saucerExplosionSound, transform.position);
 		Destroy(gameObject);
 		
@@ -63,9 +65,7 @@ function OnTriggerEnter(other : Collider){
 			GameStateScript.state = GameState.Dying;
 		}
 	}
-	if(other.tag == "shipshot"){
-		killed = true;
-		
+	if(other.tag == "shipshot"){		
 		//add some points if it was a user shot
 		scoring.score += scoring.saucerPoints;
 		
@@ -77,9 +77,7 @@ function OnTriggerEnter(other : Collider){
 		Destroy(gameObject);
 		Destroy(other.gameObject);
 	}
-	if(other.tag == "bomb"){
-		killed = true;
-		
+	if(other.tag == "bomb"){		
 		//add some points if it was a user shot
 		scoring.score += scoring.saucerPoints;
 		
@@ -90,15 +88,5 @@ function OnTriggerEnter(other : Collider){
 		GetComponent.<AudioSource>().PlayClipAtPoint(saucerExplosionSound, transform.position);
 		Destroy(gameObject);
 		Destroy(other.gameObject);
-	}
-	
-	//if this saucer has been killed
-	if(killed == true){
-		//add it to the list of saucers that need to be reloaded
-		//in case the players dies and respawns
-		var xyLoc = new RespawnLoc();
-		xyLoc.x = centerX;
-		xyLoc.y = centerY;
-		respawnFactory.saucersToRespawn.push(xyLoc);
 	}
 }

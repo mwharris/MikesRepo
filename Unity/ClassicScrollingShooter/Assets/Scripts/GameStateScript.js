@@ -8,9 +8,10 @@ public enum GameState {
 	GameOver = 3,
 	Dying = 4,
 	Respawning = 5,
-	Paused = 6
+	Paused = 6,
+	Finished = 7
 }
 
-function Start () {
+function Awake(){
 	state = GameState.GamePlay;
 }

@@ -19,6 +19,13 @@ ModelImporter:
     4300014: Grid_009
     4300016: Grid_021
     4300018: Grid_019
+    4300020: Grid_024
+    4300022: Grid_033
+    4300024: Grid_032
+    4300026: Grid_031
+    4300028: Grid_036
+    4300030: Grid_037
+    4300032: Grid_038
     7400000: Default Take
     9500000: //RootNode
   materials:
@@ -30,6 +37,10 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5

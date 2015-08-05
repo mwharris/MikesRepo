@@ -2,28 +2,43 @@
 import UnityEngine.UI;
 
 private var buttonText : GameObject;
+private var button : Selectable;
 var buttonClick : AudioClip;
 var buttonHover : AudioClip;
 var onlyActiveOnGameOver : boolean;
+var onlyActiveOnGameFinished : boolean;
 
 function Start(){
-	if(onlyActiveOnGameOver){
-		var button : Selectable = gameObject.GetComponent.<Selectable>();
+	if(onlyActiveOnGameOver || onlyActiveOnGameFinished){
+		//on game start, hide buttons that are only meant to
+		//be shown on Game Over and Game Finished
+		button = gameObject.GetComponent.<Selectable>();
 		button.interactable = false;
 	}
 }
 
 function Update(){
-	if(onlyActiveOnGameOver && GameStateScript.state == GameState.GameOver){
-		var button : Selectable = gameObject.GetComponent.<Selectable>();
+	if((onlyActiveOnGameOver && GameStateScript.state == GameState.GameOver) 
+			|| (onlyActiveOnGameFinished && GameStateScript.state == GameState.Finished)){
+		//set buttons to non-interactable to show them when 
+		//in the correct Game State
+		button = gameObject.GetComponent.<Selectable>();
 		button.interactable = true;
+	} else if((onlyActiveOnGameOver && GameStateScript.state != GameState.GameOver)
+			|| (onlyActiveOnGameFinished && GameStateScript.state != GameState.Finished)){
+		//set buttons to non-interactable to hide them when 
+		//not in the correct Game State
+		button = gameObject.GetComponent.<Selectable>();
+		button.interactable = false;
 	}
 }
 
 function HoverButtonTextEnter(){
 	//only do this action on buttons that don't appear on GameOver
 	//unless the GameState is GameOver
-	if(!onlyActiveOnGameOver || GameStateScript.state == GameState.GameOver){
+	if(!onlyActiveOnGameOver 
+			|| (onlyActiveOnGameOver && GameStateScript.state == GameState.GameOver) 
+			|| (onlyActiveOnGameFinished && GameStateScript.state == GameState.Finished)){
 		//change the color of the text on hover
 		buttonText = transform.Find("Text").gameObject;
 		var txt : Text = buttonText.GetComponent.<Text>();
@@ -37,7 +52,9 @@ function HoverButtonTextEnter(){
 function HoverButtonTextExit(){
 	//only do this action on buttons that don't appear on GameOver
 	//unless the GameState is GameOver
-	if(!onlyActiveOnGameOver || GameStateScript.state == GameState.GameOver){
+	if(!onlyActiveOnGameOver 
+			|| (onlyActiveOnGameOver && GameStateScript.state == GameState.GameOver) 
+			|| (onlyActiveOnGameFinished && GameStateScript.state == GameState.Finished)){
 		//change the color of the text on hover
 		buttonText = transform.Find("Text").gameObject;
 		var txt : Text = buttonText.GetComponent.<Text>();
@@ -48,7 +65,9 @@ function HoverButtonTextExit(){
 function ButtonClick(){
 	//only do this action on buttons that don't appear on GameOver
 	//unless the GameState is GameOver
-	if(!onlyActiveOnGameOver || GameStateScript.state == GameState.GameOver){
+	if(!onlyActiveOnGameOver 
+			|| (onlyActiveOnGameOver && GameStateScript.state == GameState.GameOver) 
+			|| (onlyActiveOnGameFinished && GameStateScript.state == GameState.Finished)){
 		//play a sound when a button is clicked
 		GetComponent.<AudioSource>().PlayOneShot(buttonClick);
 		
