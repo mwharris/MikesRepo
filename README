@@ -3,13 +3,10 @@ Personal GitHub repo for some independent projects I have been working on.
 PROJECTS
 -------------------
 -  UPDATES SINCE LAST 
-  -  SCRAMBLE
-	 -  Added level 4
-	 -  Added Game Over / Game Finished ending transitions
-	 -  Tweaked difficulty of levels 1 - 3
-	 -  Changed menu music, added new music
-	 -  Optimized the Unity project
-	 -  Fixed various performance issues and level connections
+  -  Added source code for 3 games
+	- RunNGun
+	- When Pigs Fly
+	- Flappy clone
 
 -  C++ 
   -  Pong Clone
